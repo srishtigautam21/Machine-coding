@@ -37,10 +37,16 @@ body {
   display: none;
   margin-top: 10px;
   cursor: pointer;
+  height: 250px;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
 }
 .date-wrapper {
   display: flex;
   justify-content: space-between;
+  background-color: rgb(255, 255, 255);
+  height: 35px;
+  border-bottom: 2px solid rgb(212, 212, 212, 0.5);
   /* padding: 10px; */
   /* font-size: 15px;
   font-weight: 600; */
@@ -48,17 +54,48 @@ body {
 .left-month {
   font-weight: 700;
   font-size: 25px;
+  /* color: white; */
+  padding: 0 10px;
 }
 .right-month {
   font-weight: 700;
   font-size: 25px;
+  /* color: white; */
+  padding: 0 10px;
+}
+.left-month:active {
+  background-color: rgb(82, 62, 100);
+  color: white;
+}
+.right-month:active {
+  background-color: rgb(75, 44, 103);
+  color: white;
+}
+.left-month:hover {
+  background-color: rgb(82, 62, 100);
+  color: white;
+}
+.right-month:hover {
+  background-color: rgb(82, 62, 100);
+  color: white;
 }
 .month {
   font-weight: 700;
   font-size: 20px;
   display: flex;
   align-items: center;
+  /* color: white; */
 }
 .date-picker .months-dates.active {
   display: block;
+}
+.dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  padding: 10px;
+}
+.dates .date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
