@@ -29,9 +29,14 @@ body {
   justify-content: center;
   background-color: aliceblue;
 }
+.selected-date:hover {
+  background-color: rgb(240, 242, 243);
+  cursor: pointer;
+}
 .date-picker .months-dates {
-  /* display: none; */
+  display: none;
   margin-top: 10px;
+  cursor: pointer;
 }
 .date-wrapper {
   display: flex;
@@ -53,4 +58,7 @@ body {
   font-size: 20px;
   display: flex;
   align-items: center;
+}
+.date-picker .months-dates.active {
+  display: block;
 }
