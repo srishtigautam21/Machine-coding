@@ -28,8 +28,14 @@ let currDate = date.getDate();
 let month = date.getMonth();
 let year = date.getFullYear();
 
+let selectedDate = date;
+let selectedDay = currDate;
+let selectedMonth = month;
+let selectedYear = year;
+
 mth.textContent = `${months[month]} ${year}`;
 selected_date_element.textContent = formatDate(date);
+selected_date_element.dataset.value = selectedDate;
 
 populateDays();
 
@@ -44,6 +50,9 @@ function handletoggleEvent(e) {
       "month",
       "left-month",
       "right-month",
+      "date",
+      "dates",
+      "date selected",
     ])
   ) {
     dateToggle.classList.toggle("active");
@@ -76,16 +85,37 @@ function populateDays() {
   if (month === 1) {
     amount_of_days = 28;
   }
+  if ([3, 5, 8, 10].includes(month)) {
+    amount_of_days = 30;
+  }
   for (let i = 0; i < amount_of_days; i++) {
     const day_element = document.createElement("div");
     day_element.classList.add("date");
     day_element.textContent = i + 1;
+
+    if (
+      selectedDay === i + 1 &&
+      selectedMonth === month &&
+      selectedYear === year
+    ) {
+      day_element.classList.add("selected");
+    }
+    day_element.addEventListener("click", () => {
+      selectedDate = new Date(year + "-" + (month + 1) + "-" + (i + 1));
+      selectedDay = i + 1;
+      selectedMonth = month;
+      selectedYear = year;
+      selected_date_element.textContent = formatDate(selectedDate);
+      selected_date_element.dataset.value = selectedDate;
+      populateDays();
+    });
     days.appendChild(day_element);
   }
 }
 
 //Helper func
 function checkEventPathForClass(path, selector) {
+  console.log(path, path.classList.value);
   if (selector.includes(path.classList.value)) {
     return true;
   } else {
