@@ -1,8 +1,6 @@
 let datePicker = document.querySelector(".date-picker");
 let dateToggle = document.querySelector(".months-dates");
-const selected_date_element = document.querySelector(
-  ".date-picker .selected-date"
-);
+let selected_date_element = document.querySelector(".selected-date");
 let leftArrow = document.querySelector(".left-month");
 let rightArrow = document.querySelector(".right-month");
 let mth = document.querySelector(".month");
