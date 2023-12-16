@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 770px;
+}
+.weekdays {
+  display: flex;
+}
+.day {
+  margin: 10px;
+}
