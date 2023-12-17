@@ -1,6 +1,7 @@
 const yearMonth = document.querySelector(".year-month");
 const previousBtn = document.querySelector(".previous");
 const nextBtn = document.querySelector(".next");
+const calender = document.querySelector(".calender");
 let nav = 0;
 let months = [
   "January",
@@ -44,6 +45,7 @@ let year = dt.getFullYear();
 
 function populateDays() {
   yearMonth.textContent = `${months[month]} ${year}`;
+
   let daysInMonth = new Date(year, month + 1, 0).getDate();
   let firstDayOfMonth = new Date(year, month, 1);
   //   console.log(daysInMonth, "firstday", firstDayOfMonth);
@@ -53,9 +55,27 @@ function populateDays() {
     month: "long",
     year: "numeric",
   });
-  let paddindDays = weekdays.indexOf(dateStr.split(", ")[0]);
-  console.log(paddindDays);
-  for (let i = 0; i < daysInMonth + paddindDays; i++) {}
+  let paddingDays = weekdays.indexOf(dateStr.split(", ")[0]);
+  console.log(paddingDays);
+  calender.innerHTML = "";
+  // for (let i = 0; i < paddindDays - 1; i++) {
+
+  // let calenderPaddingDays = document.createElement("div");
+  // calenderPaddingDays.classList.add("padding");
+
+  // calender.appendChild(calenderPaddingDays);
+  // }
+  for (let i = 0; i < daysInMonth + paddingDays; i++) {
+    let calenderDays = document.createElement("div");
+    calenderDays.classList.add("day");
+    if (i >= paddingDays) {
+      calenderDays.textContent = i + 1 - paddingDays;
+    } else {
+      calenderDays.textContent = daysInMonth - (paddingDays - 1 - i);
+      calenderDays.classList.add("padding");
+    }
+    calender.appendChild(calenderDays);
+  }
 }
 
 previousBtn.addEventListener("click", () => {
