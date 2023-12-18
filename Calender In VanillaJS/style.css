@@ -58,8 +58,8 @@ body {
 .eventModal {
   /* display: ; */
   background-color: rgb(10, 150, 205);
-  width: max-content;
-  height: 100px;
+  width: 40vw;
+  height: 150px;
   border-radius: 10px;
   padding: 0 15px 15px 15px;
   position: absolute;
@@ -80,4 +80,68 @@ body {
   position: absolute;
   z-index: 50;
   opacity: 0.5;
+}
+.event {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30%;
+  background: rgb(160, 204, 243);
+}
+.deleteEventModal {
+  background-color: rgb(10, 150, 205);
+  width: 40vw;
+  height: 150px;
+  border-radius: 10px;
+  padding: 0 15px 15px 15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  z-index: 100;
+  display: none;
+}
+.eventTitleInput {
+  width: 90%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: none;
+  outline: none;
+}
+.closeBtn {
+  border: none;
+  padding: 10px 15px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.saveBtn {
+  border: none;
+  background-color: rgb(12, 194, 12);
+  padding: 10px 15px;
+  border-radius: 3px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+.saveBtn:hover {
+  background-color: rgb(16, 130, 16);
+}
+.cancelBtn {
+  border: none;
+  padding: 10px 15px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.deleteBtn {
+  border: none;
+  background-color: rgb(194, 55, 12);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 3px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+.eventText {
+  width: 90%;
+  margin-bottom: 15px;
+  font-size: 20px;
 }

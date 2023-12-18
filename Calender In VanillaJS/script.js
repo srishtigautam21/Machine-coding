@@ -4,12 +4,19 @@ const nextBtn = document.querySelector(".next");
 const calender = document.querySelector(".calender");
 const eventModal = document.querySelector(".eventModal");
 const modalBackground = document.querySelector(".modalBackground");
+const eventTitleInput = document.querySelector(".eventTitleInput");
+const saveBtn = document.querySelector(".saveBtn");
+const cancelBtn = document.querySelector(".cancelBtn");
+const deleteEventModal = document.querySelector(".deleteEventModal");
+const eventText = document.querySelector(".eventText");
+const deleteBtn = document.querySelector(".deleteBtn");
+const closeBtn = document.querySelector(".closeBtn");
 
-const events = localStorage.getItem("events")
+let events = localStorage.getItem("events")
   ? JSON.parse(localStorage.getItem("events"))
   : [];
 
-const clicked = 0;
+let clicked = 0;
 
 let nav = 0;
 let months = [
@@ -42,7 +49,16 @@ let year = dt.getFullYear();
 
 const openModal = (date) => {
   console.log(date);
-  eventModal.style.display = "block";
+
+  clicked = date;
+  let eventOfTheDay = events.find((e) => e.date === clicked);
+  if (eventOfTheDay) {
+    eventText.textContent = eventOfTheDay.title;
+    deleteEventModal.style.display = "block";
+  } else {
+    eventModal.style.display = "block";
+  }
+
   modalBackground.style.display = "block";
 };
 
@@ -73,6 +89,13 @@ function populateDays() {
 
     if (i >= paddingDays) {
       calenderDays.textContent = i + 1 - paddingDays;
+      let eventOfTheDay = events.find((e) => e.date === strDate);
+      if (eventOfTheDay) {
+        let eventDiv = document.createElement("div");
+        eventDiv.classList.add("event");
+        eventDiv.textContent = eventOfTheDay.title;
+        calenderDays.appendChild(eventDiv);
+      }
       calenderDays.addEventListener("click", () => {
         openModal(strDate);
       });
@@ -83,6 +106,29 @@ function populateDays() {
     calender.appendChild(calenderDays);
   }
 }
+
+const closeModal = () => {
+  eventModal.style.display = "none";
+  deleteEventModal.style.display = "none";
+  modalBackground.style.display = "none";
+};
+
+const handleSaveBtn = () => {
+  if (eventTitleInput.value) {
+    events.push({
+      title: eventTitleInput.value,
+      date: clicked,
+    });
+    localStorage.setItem("events", JSON.stringify(events));
+    closeModal();
+  }
+};
+
+const handleDeleteEvent = () => {
+  events = events.filter((e) => e.date !== clicked);
+  localStorage.setItem("events", JSON.stringify(events));
+  closeModal();
+};
 
 previousBtn.addEventListener("click", () => {
   month--;
@@ -101,5 +147,10 @@ nextBtn.addEventListener("click", () => {
 
   populateDays();
 });
+
+saveBtn.addEventListener("click", () => handleSaveBtn());
+closeBtn.addEventListener("click", () => closeModal());
+cancelBtn.addEventListener("click", () => closeModal());
+deleteBtn.addEventListener("click", () => handleDeleteEvent());
 
 populateDays();
