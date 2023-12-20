@@ -48,8 +48,6 @@ let month = dt.getMonth();
 let year = dt.getFullYear();
 
 const openModal = (date) => {
-  console.log(date);
-
   clicked = date;
   let eventOfTheDay = events.find((e) => e.date === clicked);
   if (eventOfTheDay) {
@@ -65,10 +63,11 @@ const openModal = (date) => {
 function populateDays() {
   yearMonth.textContent = `${months[month]} ${year}`;
 
-  let daysInMonth = new Date(year, month + 1, 0).getDate();
-  let firstDayOfMonth = new Date(year, month, 1);
-  //   console.log(daysInMonth, "firstday", firstDayOfMonth);
+  let daysInMonth = new Date(year, month + 1, 0).getDate(); // Gives the number of days in current month with month+1
+  let firstDayOfMonth = new Date(year, month, 1); // gives a string with the first day of month like Fri Dec 01 2023 00:00:00 GMT+0530 (India Standard Time)
+
   let dateStr = firstDayOfMonth.toLocaleDateString("en-IN", {
+    // coverts string to the desired values using toLocalDateString
     weekday: "long",
     day: "numeric",
     month: "long",
@@ -77,10 +76,10 @@ function populateDays() {
 
   let paddingDays = weekdays.indexOf(dateStr.split(", ")[0]);
 
-  console.log(paddingDays);
   calender.innerHTML = "";
 
-  const daysInPrevMonth = new Date(year, month, 0).getDate();
+  const daysInPrevMonth = new Date(year, month, 0).getDate(); // with 0 gives number of days in prev month
+
   for (let i = 1; i < daysInMonth + paddingDays; i++) {
     let calenderDays = document.createElement("div");
     calenderDays.classList.add("day");
@@ -122,12 +121,14 @@ const handleSaveBtn = () => {
     localStorage.setItem("events", JSON.stringify(events));
     closeModal();
   }
+  populateDays();
 };
 
 const handleDeleteEvent = () => {
   events = events.filter((e) => e.date !== clicked);
   localStorage.setItem("events", JSON.stringify(events));
   closeModal();
+  populateDays();
 };
 
 previousBtn.addEventListener("click", () => {
@@ -144,7 +145,6 @@ nextBtn.addEventListener("click", () => {
     month = 0;
     year++;
   }
-
   populateDays();
 });
 

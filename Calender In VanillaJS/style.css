@@ -145,3 +145,21 @@ body {
   margin-bottom: 15px;
   font-size: 20px;
 }
+.previous {
+  border: none;
+  background-color: #d36c6c;
+  padding: 8px 12px;
+  border-radius: 3px;
+  margin-right: 5px;
+  cursor: pointer;
+  color: white;
+}
+.next {
+  border: none;
+  background-color: #d36c6c;
+  padding: 8px 12px;
+  border-radius: 3px;
+  margin-right: 5px;
+  color: white;
+  cursor: pointer;
+}
