@@ -1,0 +1,24 @@
+.search-wrapper {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+.input {
+  padding: 10px;
+  width: 300px;
+}
+.cards-wrapper {
+  display: grid;
+  /* minmax(150px, 100vw) */
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  /* min-width is 150px and max is 1fr i.e the full width*/
+  gap: 10px;
+}
+.card {
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 10px;
+}
+.hide {
+  display: none;
+}
