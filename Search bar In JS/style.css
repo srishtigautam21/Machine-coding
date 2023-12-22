@@ -9,9 +9,7 @@
 }
 .cards-wrapper {
   display: grid;
-  /* minmax(150px, 100vw) */
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  /* min-width is 150px and max is 1fr i.e the full width*/
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   gap: 10px;
 }
 .card {
@@ -21,4 +19,9 @@
 }
 .hide {
   display: none;
+}
+.email {
+  font-size: 15px;
+  margin-top: 5px;
+  color: gray;
 }
