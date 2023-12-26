@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  /* width: 70%; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+.wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 630px;
+  height: 500px;
+  border-radius: 15px;
+  box-shadow: 10px 5px 25px 5px rgb(235, 234, 234);
+  padding: 15px;
+}
+.wrapper a {
+  margin: 20px 0;
+  font-size: 1.3rem;
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+}
