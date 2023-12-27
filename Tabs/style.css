@@ -34,6 +34,17 @@ body {
   align-items: center;
   justify-content: center;
   margin-top: 20px; */
+.tabs {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+.active[data-tab-target] {
+  border-bottom: 2px solid rgb(139, 7, 139);
+  color: rgb(139, 7, 139);
+  transition: all 0.1s ease;
+}
 [data-tab-content] {
   display: none;
 }
@@ -42,4 +53,12 @@ body {
 }
 li {
   cursor: pointer;
+  list-style: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: rgb(198, 11, 198);
+  padding: 0.5rem 1rem;
+}
+li:hover {
+  color: rgb(139, 7, 139);
 }
