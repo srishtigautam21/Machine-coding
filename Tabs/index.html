@@ -8,18 +8,30 @@
   </head>
   <body>
     <div class="wrapper">
-      <div class="home-tab">
-        <a href="/">Home</a>
-        <div>This is home page</div>
+      <div class="tabs">
+        <li data-tab-target="#home">Home</li>
+        <li data-tab-target="#jobs">Jobs</li>
+        <li data-tab-target="#profile">Profile</li>
       </div>
-      <div class="jobs-tab">
-        <a href="/jobs">Jobs</a>
-        <div>This is jobs page</div>
-      </div>
-      <div class="profile-tab">
-        <a href="/profile">Profile</a>
-        <div>This is Profile page</div>
+
+      <div class="content">
+        <div data-tab-content id="home" class="active">
+          <!-- <a href="./index.html">Home</a> -->
+          <h1>Home page</h1>
+          <p>This is home page</p>
+        </div>
+        <div data-tab-content id="jobs">
+          <!-- <a href="./jobsPage.html">Jobs</a> -->
+          <h1>Jobs page</h1>
+          <p>This is Jobs page</p>
+        </div>
+        <div data-tab-content id="profile">
+          <!-- <a href="./profilePage.html">Profile</a> -->
+          <h1>Profile page</h1>
+          <p>This is Profile page</p>
+        </div>
       </div>
     </div>
+    <script src="index.js"></script>
   </body>
 </html>
